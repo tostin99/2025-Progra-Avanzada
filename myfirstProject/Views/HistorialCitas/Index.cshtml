@@ -1,0 +1,77 @@
+@model IEnumerable<myfirstProject.Models.VetEntities.HistorialCitas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Accion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InicioAnt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinAnt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InicioNuevo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinNuevo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cita)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InicioAnt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinAnt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InicioNuevo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinNuevo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cita.CitaId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HistorialId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HistorialId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HistorialId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
